@@ -4,7 +4,6 @@
 ![Solidity](https://img.shields.io/badge/solidity-0.8.28-363636)
 ![Coverage](https://img.shields.io/badge/coverage-112%20Hardhat%20tests-brightgreen)
 ![Network](https://img.shields.io/badge/network-Sepolia-6A5ACD)
-![License](https://img.shields.io/badge/license-not%20specified-lightgrey)
 
 ## Coursework Context
 
@@ -592,6 +591,3 @@ The browser only holds public contract addresses, token metadata, REST responses
 - Publish deployment manifests instead of hardcoding client addresses
 - Add explicit coverage reporting rather than using test count as the current public signal
 
-## License
-
-No root `LICENSE` file is present in this repository. Until a license file is added, redistribution and reuse are not granted by default.
