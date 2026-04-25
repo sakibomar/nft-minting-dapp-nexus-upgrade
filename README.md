@@ -297,24 +297,138 @@ npm test
 
 **✅ All 112 tests passing (6s)**
 
-#### NFTMarketplace (62 tests)
-- Deployment & ownership
-- Fixed-price listings (creation, purchase, cancellation)
-- Listing price updates
-- English auctions (bidding, settlement, cancellation)
-- Offer system (creation, acceptance, cancellation)
-- View functions (listing IDs, counts)
-- Pausable functionality
-- ERC-2981 royalty enforcement
+```
+NFTMarketplace
+  Deployment
+    ✓ should set deployer as owner (2045ms)
+    ✓ should start with 0 listings and 0 offers
+    ✓ should start unpaused
+  Fixed-Price Listings
+    ✓ should create a listing and escrow the NFT (78ms)
+    ✓ should emit Listed event (58ms)
+    ✓ should allow buyer to purchase at listing price (55ms)
+    ✓ should emit Sale event on purchase (48ms)
+    ✓ should enforce ERC-2981 royalty split on sale
+    ✓ should refund overpayment
+    ✓ should revert when seller tries to buy own listing (150ms)
+    ✓ should revert with insufficient payment (52ms)
+    ✓ should revert when buying inactive listing
+    ✓ should revert listing with zero price (43ms)
+    ✓ should revert listing from non-token-owner
+  Cancel Listing
+    ✓ should allow seller to cancel and return NFT (49ms)
+    ✓ should emit ListingCancelled event
+    ✓ should revert cancel from non-seller
+    ✓ should work even when paused (user safety)
+  Update Listing Price
+    ✓ should allow seller to update price
+    ✓ should emit ListingPriceUpdated event
+    ✓ should allow purchase at new price (46ms)
+    ✓ should revert from non-seller
+    ✓ should revert for auction listings
+    ✓ should revert with zero price
+  English Auctions
+    ✓ should create an auction with correct parameters (40ms)
+    ✓ should accept valid first bid
+    ✓ should emit BidPlaced event (38ms)
+    ✓ should refund previous bidder when outbid (54ms)
+    ✓ should revert bid below start price
+    ✓ should revert bid not higher than current highest
+    ✓ should settle auction and transfer NFT to winner (47ms)
+    ✓ should return NFT to seller when no bids
+    ✓ should return NFT + refund when reserve not met (49ms)
+    ✓ should revert settle before auction ends
+    ✓ should revert bid after auction ends
+    ✓ should revert cancel auction with bids
+    ✓ should allow cancel auction with no bids
+    ✓ should revert invalid duration (too short)
+    ✓ should revert invalid duration (too long)
+    ✓ should store bid history (56ms)
+    ✓ should allow settleAuction even when paused (user safety) (53ms)
+  Make Offer
+    ✓ should create an offer with escrowed ETH (44ms)
+    ✓ should emit OfferMade event
+    ✓ should allow token owner to accept offer
+    ✓ should emit OfferAccepted event (55ms)
+    ✓ should allow offer maker to cancel and get refund (47ms)
+    ✓ should emit OfferCancelled event
+    ✓ should revert accept on expired offer
+    ✓ should revert accept from non-owner
+    ✓ should revert cancel from non-offer-maker
+    ✓ should revert offer with zero ETH
+    ✓ should revert offer with past expiration
+    ✓ should return offers for a specific token
+    ✓ should return offers by buyer (38ms)
+  View Functions
+    ✓ should return all listing IDs
+    ✓ should return only active listings (39ms)
+    ✓ should return correct total listings count
+    ✓ should return correct total offers count
+  Pausable
+    ✓ should allow owner to pause and unpause (40ms)
+    ✓ should block new listings when paused
+    ✓ should block buyNow when paused
+    ✓ should block new offers when paused
+    ✓ should revert pause from non-owner
 
-#### NFTMinter (50 tests)
-- Deployment & token configuration
-- Minting with sequential token IDs and creator tracking
-- Burning with supply updates
-- Royalty management (per-token and default)
-- Owner functions (withdraw, price updates, max supply)
-- Pausable minting and burning
-- ERC-721 transfers and approvals
+NFTMinter
+  Deployment
+    ✓ should set the correct token name and symbol (84ms)
+    ✓ should set the deployer as owner
+    ✓ should set initial mint price to 0.01 ETH
+    ✓ should set initial max supply to 100
+    ✓ should start with 0 minted and 0 burned
+    ✓ should start unpaused
+    ✓ should set default royalty to 10% for the owner
+    ✓ should support ERC-721 and ERC-2981 interfaces
+  Minting
+    ✓ should mint an NFT with correct token URI (44ms)
+    ✓ should set the creator correctly
+    ✓ should increment token IDs sequentially (64ms)
+    ✓ should emit NFTMinted event with correct parameters (42ms)
+    ✓ should set per-token royalty when royaltyBps > 0
+    ✓ should use default royalty when royaltyBps is 0
+    ✓ should accept exact mint price
+    ✓ should accept overpayment
+    ✓ should revert with insufficient ETH
+    ✓ should revert with zero ETH
+    ✓ should revert when royalty exceeds 50%
+    ✓ should allow max royalty of exactly 50%
+    ✓ should revert when max supply is reached
+    ✓ should return the minted token ID
+  Burning
+    ✓ should allow owner to burn their NFT
+    ✓ should emit NFTBurned event (45ms)
+    ✓ should increment burned count (38ms)
+    ✓ should correctly update totalSupply after burning
+    ✓ should reset token royalty after burning
+    ✓ should revert when non-owner tries to burn
+    ✓ should revert when burning non-existent token
+  View Functions
+    ✓ should return correct totalSupply after mints and burns (42ms)
+    ✓ should return correct creator for each token (44ms)
+    ✓ should preserve creator after transfer (45ms)
+  Owner Functions
+    ✓ should allow owner to withdraw ETH
+    ✓ should revert withdraw with no funds
+    ✓ should revert withdraw from non-owner
+    ✓ should allow owner to update mint price
+    ✓ should enforce new mint price on subsequent mints
+    ✓ should revert updateMintPrice from non-owner
+    ✓ should allow owner to update max supply
+    ✓ should revert updateMaxSupply from non-owner
+  Pausable
+    ✓ should allow owner to pause and unpause (42ms)
+    ✓ should block minting when paused
+    ✓ should block burning when paused
+    ✓ should allow minting again after unpausing
+    ✓ should revert pause from non-owner
+    ✓ should revert unpause from non-owner
+  ERC-721 Transfers
+    ✓ should transfer NFT between accounts
+    ✓ should allow approved address to transfer
+    ✓ should revert transfer from non-owner/non-approved
+```
 
 ## Environment Variables
 
