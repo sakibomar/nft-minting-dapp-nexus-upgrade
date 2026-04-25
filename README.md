@@ -18,10 +18,27 @@
 
 This repository implements a hybrid DApp for minting, cataloguing, and trading ERC-721 NFTs on Ethereum Sepolia. Token ownership, escrow, bids, offers, auction settlement, and royalty distribution are enforced on-chain by two Solidity contracts. Metadata pinning, cached reads, IPFS proxying, transaction history aggregation, and real-time event fan-out are handled by an Express/Socket.IO service. The client is a React single-page application that uses MetaMask through the EIP-1193 provider interface for all state-changing transactions.
 
-## Presentation and Demo
+## 🎬 Presentation and Demo
 
-- Demo video: `https://youtu.be/5eIeuYzYGqQ`
-- Presentation context: `CN6035 - NFT Minting & Marketplace Platform | Hybrid DApp Demo`
+### Live Video Demo
+**YouTube:** [https://youtu.be/5eIeuYzYGqQ](https://youtu.be/5eIeuYzYGqQ)
+
+This video demonstrates:
+- Live wallet connection and NFT minting workflow
+- Marketplace listing creation and offer/bid management
+- Admin controls and transaction history
+- Real-time Socket.IO event streaming
+- Asset gallery navigation and filtering
+- Complete end-to-end user journey
+
+### Presentation Materials
+- **Context:** CN6035 - NFT Minting & Marketplace Platform | Hybrid DApp Demo
+- **Location:** `presentation/` directory
+  - `PRESENTATION_GUIDE.md` - Slide narrative and speaker notes
+  - `VIDEO_SCRIPT.md` - Scripted demo walkthrough
+  - `index.html` - Interactive presentation slides
+  - `styles.css` - Presentation styling
+  - `script.js` - Presentation interactivity
 
 ## Architecture Overview
 
