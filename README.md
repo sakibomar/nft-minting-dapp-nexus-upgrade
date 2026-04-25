@@ -20,8 +20,7 @@ This repository implements a hybrid DApp for minting, cataloguing, and trading E
 
 ## 🎬 Presentation and Demo
 
-### Live Video Demo
-**YouTube:** [https://youtu.be/5eIeuYzYGqQ](https://youtu.be/5eIeuYzYGqQ)
+**Live Video Demo:** [https://youtu.be/5eIeuYzYGqQ](https://youtu.be/5eIeuYzYGqQ)
 
 This video demonstrates:
 - Live wallet connection and NFT minting workflow
@@ -31,14 +30,16 @@ This video demonstrates:
 - Asset gallery navigation and filtering
 - Complete end-to-end user journey
 
-### Presentation Materials
-- **Context:** CN6035 - NFT Minting & Marketplace Platform | Hybrid DApp Demo
-- **Location:** `presentation/` directory
-  - `PRESENTATION_GUIDE.md` - Slide narrative and speaker notes
-  - `VIDEO_SCRIPT.md` - Scripted demo walkthrough
-  - `index.html` - Interactive presentation slides
-  - `styles.css` - Presentation styling
-  - `script.js` - Presentation interactivity
+## 📖 Quick Start Guide
+
+**→ [See INSTALLATION_MANUAL.md](INSTALLATION_MANUAL.md) for step-by-step setup and deployment instructions**
+
+This comprehensive guide covers:
+- Environment configuration
+- Local blockchain setup
+- Smart contract deployment
+- Server and client initialization
+- Troubleshooting and common issues
 
 ## Architecture Overview
 
