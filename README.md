@@ -278,6 +278,44 @@ The repository also supports a local chain workflow, but the contract addresses 
 4. Replace the contract addresses in `client/src/utils/constants.js` and `server/.env` with the deployment output from `blockchain/scripts/deploy.js`.
 5. Add the local Hardhat network to MetaMask before using the client.
 
+## Testing
+
+Run the full Hardhat test suite to verify contract functionality:
+
+```bash
+npm run test
+```
+
+or from the `blockchain/` directory:
+
+```bash
+cd blockchain
+npm test
+```
+
+### Test Results
+
+**✅ All 112 tests passing (6s)**
+
+#### NFTMarketplace (62 tests)
+- Deployment & ownership
+- Fixed-price listings (creation, purchase, cancellation)
+- Listing price updates
+- English auctions (bidding, settlement, cancellation)
+- Offer system (creation, acceptance, cancellation)
+- View functions (listing IDs, counts)
+- Pausable functionality
+- ERC-2981 royalty enforcement
+
+#### NFTMinter (50 tests)
+- Deployment & token configuration
+- Minting with sequential token IDs and creator tracking
+- Burning with supply updates
+- Royalty management (per-token and default)
+- Owner functions (withdraw, price updates, max supply)
+- Pausable minting and burning
+- ERC-721 transfers and approvals
+
 ## Environment Variables
 
 ### Blockchain (`blockchain/.env`)
