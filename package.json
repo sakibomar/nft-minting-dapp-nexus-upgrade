@@ -1,0 +1,25 @@
+{
+  "name": "nft-minting-dapp",
+  "version": "1.0.0",
+  "description": "NFT Minting & Gallery DApp — CN6035 Hybrid DApp Development Coursework",
+  "scripts": {
+    "install:all": "cd blockchain && npm install && cd ../client && npm install && cd ../server && npm install",
+    "compile": "cd blockchain && npx hardhat compile",
+    "test": "cd blockchain && npx hardhat test",
+    "deploy:local": "cd blockchain && npx hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "cd blockchain && npx hardhat run scripts/deploy.js --network sepolia",
+    "start:client": "cd client && npm run dev",
+    "start:server": "cd server && npm run dev",
+    "start:node": "cd blockchain && npx hardhat node",
+    "lint": "eslint . --ext .js,.jsx",
+    "lint:sol": "cd blockchain && npx solhint contracts/**/*.sol",
+    "format": "prettier --write '**/*.{js,jsx,json,css,md}'",
+    "format:check": "prettier --check '**/*.{js,jsx,json,css,md}'"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.0",
+    "prettier": "^3.2.0",
+    "solhint": "^4.1.0"
+  }
+}

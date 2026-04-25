@@ -1,0 +1,21 @@
+{
+  "name": "nft-minting-dapp-blockchain",
+  "version": "1.0.0",
+  "description": "Smart contracts for NFT Minting DApp - CN6035 Coursework",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
+    "node": "npx hardhat node"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "dotenv": "^16.3.0",
+    "hardhat": "^2.19.0"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.13"
+  }
+}
